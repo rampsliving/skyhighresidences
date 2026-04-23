@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html style="font-size: 14px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Accessibility</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Accessibility.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 8.4.0, nicepage.com">
+    
+    
+    
+    
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lobster:wght@400&amp;family=Quicksand:wght@300;400;500;600;700">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Site1",
+		"logo": "images/SkyHighResidencesLogo.png",
+		"sameAs": [
+				"https://www.facebook.com/people/Sky-High-Residences/61553816463615/",
+				"https://www.facebook.com/people/Sky-High-Residences/61553816463615/",
+				"https://www.facebook.com/people/Sky-High-Residences/61553816463615/"
+		]
+}</script>
+    <meta name="theme-color" content="#1a81c7">
+    <meta property="og:title" content="Accessibility">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  <script>
+    (function() {
+    function gdprConfirmed() {
+        return true;
+    }
+
+    var added = false;
+    var currentScript = document.currentScript;
+
+    function insertHTML(html) {
+        var container = document.createElement('div');
+        container.innerHTML = html;
+        container.querySelectorAll('script').forEach(s => {
+            const ns = document.createElement('script');
+            ns.async = s.async;
+            if (s.src) {
+                ns.src = s.src;
+            } else {
+                ns.textContent = s.textContent;
+            }
+            s.replaceWith(ns);
+        });
+
+            var fragment = document.createDocumentFragment();
+            fragment.append(...container.childNodes);
+
+            if (currentScript && currentScript.parentNode) {
+                currentScript.after(fragment);
+            }
+    }
+
+    window._npAddGAnalytics = function () {
+        if (gdprConfirmed() && !added) {
+            var gaBody = "<!-- Google Analytics -->\n    <gascript async src=\"https://www.googletagmanager.com/gtag/js?id=6Leh1bssAAAAAIxQTJvsEvmKQvjjZnZ1kiLBfYgB\"></gascript>\n    <gascript>\n        window.dataLayer = window.dataLayer || [];\n        function gtag(){dataLayer.push(arguments);}\n        gtag('js', new Date());\n        gtag('config', '6Leh1bssAAAAAIxQTJvsEvmKQvjjZnZ1kiLBfYgB');\n    </gascript>\n    <!-- End Google Analytics -->";
+            var replacedBody = gaBody.replace(/gascript/g, 'script');
+            insertHTML(replacedBody);
+            added = true;
+        }
+    }
+
+    window._npAddGAnalytics();
+    })();
+    </script><meta name="referrer" content="origin"><script>
+    window.recaptchaRenderedV2 = false;
+    window.recaptchaFallback = false;
+    window.recaptchaSiteKeyV2 = '6LdfeIwrAAAAAMnDkaIExdHsV0Nsj8y-CU9AyTjZ';
+
+    function gdprConfirmed() {
+        return true;
+    }
+
+    function dynamicLoadScript() {
+        var script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js?render=6Leh1bssAAAAAIxQTJvsEvmKQvjjZnZ1kiLBfYgB';
+        script.async = true;
+        script.onload = function () {
+            var event = new CustomEvent("recaptchaLoaded");
+            document.dispatchEvent(event);
+        };
+        document.body.appendChild(script);
+    }
+
+    function showRecaptchaError(error) {
+        error = error || '';
+        var formError = document.querySelector('.u-form-send-error');
+
+        if (formError) {
+            formError.innerText = 'Site Owner Error: ' + error.replace(/:[\s\S]*/, '');
+            formError.style.display = 'block';
+        }
+
+        console.error('Error in grecaptcha: ', error);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var confirmButtons = document.querySelectorAll('.u-cookies-consent .u-button-confirm');
+        confirmButtons.forEach(function (button) {
+            button.onclick = dynamicLoadScript;
+        });
+    });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            if (!gdprConfirmed()) {
+                return;
+            }
+            dynamicLoadScript();
+        });
+    </script>
+
+    <script>
+        document.addEventListener("recaptchaLoaded", function() {
+            if (!gdprConfirmed()) {
+                return;
+            }
+
+            (function (grecaptcha, sitekey, actions) {
+                var recaptcha = {
+                    execute: function (action, submitFormCb) {
+                        if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function') {
+                            showRecaptchaError('reCAPTCHA script failed to load.');
+                            return;
+                        }
+
+                        try {
+                            grecaptcha.execute(sitekey, {action: action}).then((token) => {
+                                if (!token) {
+                                    throw new Error('Empty token received from reCAPTCHA');
+                                }
+
+                                var forms = document.getElementsByTagName('form');
+
+                                for (var i = 0; i < forms.length; i++) {
+                                    var response = forms[i].querySelector('[name="recaptchaResponse"]');
+
+                                    if (!response) {
+                                        response = document.createElement('input');
+                                        response.setAttribute('type', 'hidden');
+                                        response.setAttribute('name', 'recaptchaResponse');
+                                        forms[i].appendChild(response);
+                                    }
+
+                                    response.value = token;
+                                }
+
+                                submitFormCb();
+                            }).catch((e) => {
+                                showRecaptchaError(e.message);
+                            });
+                        } catch (e) {
+                            showRecaptchaError(e.message);
+                        }
+                    },
+
+                    executeContact: function (submitFormCb) {
+                        recaptcha.execute(actions['contact'], submitFormCb);
+                    }
+                };
+
+                window.recaptchaObject = recaptcha;
+                window.grecaptchaObject = grecaptcha;
+            })(
+                grecaptcha,
+                
+                '6Leh1bssAAAAAIxQTJvsEvmKQvjjZnZ1kiLBfYgB',
+                {'contact': 'contact'}
+            );
+        });
+    </script>
+
+    <script>
+    window.showRecaptchaV2 = function (form) {
+        if (!form || !form.length) {
+            return;
+        }
+        if (typeof window.grecaptchaObject === 'undefined' || !window.grecaptchaObject) {
+            return;
+        }
+
+        const formEl = form[0];
+
+        let container = document.getElementById('recaptcha-v2-container');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'recaptcha-v2-container';
+            formEl.parentElement.appendChild(container);
+        }
+
+        let tokenReceived = false;
+        let timeoutHandle;
+
+        if (window.recaptchaRenderedV2 === false || typeof window.recaptchaRenderedV2 === 'undefined') {
+            window.recaptchaRenderedV2 = window.grecaptchaObject.render('recaptcha-v2-container', {
+                'sitekey': window.recaptchaSiteKeyV2,
+                'size': 'invisible',
+                'callback': function (token) {
+                    clearTimeout(timeoutHandle);
+
+                    if (!token) {
+                        showRecaptchaError('reCAPTCHA v2 token was empty. Please try again.');
+                        return;
+                    }
+
+                    tokenReceived = true;
+
+                    let recaptchaResponseV2 = formEl.querySelector('input[name="recaptchaResponseV2"]');
+
+                    if (!recaptchaResponseV2) {
+                        recaptchaResponseV2 = document.createElement('input');
+                        recaptchaResponseV2.type = 'hidden';
+                        recaptchaResponseV2.name = 'recaptchaResponseV2';
+                        formEl.appendChild(recaptchaResponseV2);
+                    }
+
+                    recaptchaResponseV2.value = token;
+
+                    if (window.recaptchaSiteKeyV2) {
+                        let siteKeyInput = formEl.querySelector('input[name="siteKey"]');
+
+                        if (siteKeyInput) {
+                            siteKeyInput.value = window.recaptchaSiteKeyV2;
+                        }
+                    }
+
+                    document.querySelectorAll('.u-form-send-error').forEach(el => {
+                        el.style.display = 'none';
+                    });
+
+                    const event = new CustomEvent('submit', {
+                        detail: { recaptchaPassed: true },
+                        bubbles: true,
+                        cancelable: true,
+                    });
+
+                    formEl.dispatchEvent(event);
+                },
+                'error-callback': function () {
+                    clearTimeout(timeoutHandle);
+                    showRecaptchaError('reCAPTCHA v2 error. Please try again.');
+                },
+                'expired-callback': function () {
+                    clearTimeout(timeoutHandle);
+                }
+            });
+
+            window.grecaptchaObject.reset(window.recaptchaRenderedV2);
+
+            setTimeout(() => {
+                window.grecaptchaObject.execute(window.recaptchaRenderedV2);
+            }, 300);
+
+            timeoutHandle = setTimeout(function () {
+                if (!tokenReceived) {
+                    showRecaptchaError('The Contact Form could not be submitted because Google reCAPTCHA v3 detected unusual activity from your connection. Please try again later, or complete the reCAPTCHA v2 challenge if it appears.');
+                }
+            }, 120000);
+        } else {
+            window.grecaptchaObject.reset(window.recaptchaRenderedV2);
+
+            setTimeout(() => {
+                window.grecaptchaObject.execute(window.recaptchaRenderedV2);
+            }, 300);
+        }
+    };
+    </script>
+<meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-clearfix u-xl-mode" data-lang="en"><header class="u-clearfix u-custom-color-1 u-header u-header" id="header"><div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+        <a href="#" class="u-image u-logo u-image-1" data-image-width="1848" data-image-height="900">
+          <img src="images/SkyHighResidencesLogo.png" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1" role="navigation" aria-label="Menu navigation">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; text-transform: uppercase;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" tabindex="-1" aria-label="Open menu" aria-controls="b47b">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link u-text-active-white u-text-body-color u-text-hover-white u-nav-link-2" href="./">Home</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link u-text-active-white u-text-body-color u-text-hover-white u-nav-link-2" href="Amenities.html">Amenities</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link u-text-active-white u-text-body-color u-text-hover-white u-nav-link-2" href="Accessibility.html">Accessibility</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link u-text-active-white u-text-body-color u-text-hover-white u-nav-link-2" href="Location.html">Location</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse" id="b47b" role="region" aria-label="Menu panel">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2" role="menubar"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="./">Home</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="Amenities.html">Amenities</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="Accessibility.html">Accessibility</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="Location.html">Location</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-white u-section-1" id="block-1">
+      <div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
+        <h3 class="u-align-center u-text u-text-default u-text-1"> Smart Living. Easy Access.</h3>
+      </div>
+    </section>
+    <section class="u-clearfix u-white u-section-2" id="block-2">
+      <div class="custom-expanded u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-layout u-similar-container u-container-layout-1">
+              <img class="u-expanded-width u-image u-image-round u-radius u-image-1" src="images/food.png" alt="" data-image-width="3000" data-image-height="2000">
+              <p class="u-text u-text-default u-text-1"> Dining at Your Doorstep: Easy Access to the Best Local Restaurants</p>
+              <p class="u-text u-text-2"> From cozy cafes to trendy eateries, you'll find a variety of cuisines to suit any mood or taste.</p>
+            </div>
+          </div>
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-layout u-similar-container u-container-layout-2">
+              <img class="u-expanded-width u-image u-image-round u-radius u-image-2" src="images/shopping.png" alt="" data-image-width="3000" data-image-height="2001">
+              <p class="u-text u-text-default u-text-3"> Enjoy Mall Access Like Never Before, Right from Home</p>
+              <p class="u-text u-text-4"> Whether you're grabbing a coffee on the go or enjoying a weekend shopping spree, the mall is just around the corner, so you can shop whenever it fits your schedule</p>
+            </div>
+          </div>
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-layout u-similar-container u-container-layout-3">
+              <img class="u-expanded-width u-image u-image-round u-radius u-image-3" src="images/work.png" alt="" data-image-width="3000" data-image-height="2000">
+              <p class="u-text u-text-default u-text-5"> Home, Work, Everywhere—Transit Right Outside</p>
+              <p class="u-text u-text-6"> Whether you’re heading to work, meeting friends, or traveling to explore new spots, transportation is always at your fingertips.</p>
+            </div>
+          </div>
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-layout u-similar-container u-container-layout-4">
+              <img class="u-expanded-width u-image u-image-round u-radius u-image-4" src="images/atm.png" alt="" data-image-width="3000" data-image-height="2019">
+              <p class="u-text u-text-default u-text-7"> Easy Access to Banking: Manage Your Finances with Convenience</p>
+              <p class="u-text u-text-8"> With 24/7 access to ATMs nearby, withdrawing cash or making deposits is hassle-free, no matter your schedule.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="u-expanded-width u-flip-horizontal u-shape u-shape-svg u-text-palette-1-base u-shape-1">
+        <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 160" style=""><use xlink:href="#svg-0c09"></use></svg>
+        <svg class="u-svg-content" viewBox="0 0 160 160" x="0px" y="0px" id="svg-0c09"><path d="M160,160H0V0L160,160z"></path></svg>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-footer u-gradient u-image u-footer" id="footer" data-image-width="4000" data-image-height="2250"><div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-size-30">
+                <div class="u-layout-col">
+                  <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+                    <div class="u-container-layout u-container-layout-1">
+                      <h3 class="u-text u-text-1"> Send us a message
+and we’ll get back to you shortly.</h3>
+                      <div class="u-expanded-width u-form u-radius u-form-1">
+                        <form action="https://service.nicepagesrv.com/form/v4/form-process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
+                          <div class="u-form-group u-form-name">
+                            <label for="name-2653" class="u-label u-label-1">Name</label>
+                            <input type="text" placeholder="Enter your Name" id="name-2653" name="name" class="u-input u-input-rectangle u-radius u-input-1" required="">
+                          </div>
+                          <div class="u-form-email u-form-group">
+                            <label for="email-2653" class="u-label u-label-2">Email</label>
+                            <input type="email" placeholder="Enter a valid email address" id="email-2653" name="email" class="u-input u-input-rectangle u-radius u-input-2" required="required">
+                          </div>
+                          <div class="u-form-group u-form-message">
+                            <label for="message-2653" class="u-label u-label-3">Message</label>
+                            <textarea placeholder="Enter your message" rows="4" cols="50" id="message-2653" name="message" class="u-input u-input-rectangle u-radius u-input-3" required=""></textarea>
+                          </div>
+                          <div class="u-align-center u-form-group u-form-submit">
+                            <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-palette-4-base u-radius u-btn-1">Submit</a>
+                            <input type="submit" value="submit" class="u-form-control-hidden">
+                          </div>
+                          <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                          <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                          <input type="hidden" value="" name="recaptchaResponse">
+                          <input type="hidden" name="formServices" value="198165f2-8346-e093-cd43-bb991d9082b7">
+                          <input type="hidden" name="siteKey" value="6Leh1bssAAAAAIxQTJvsEvmKQvjjZnZ1kiLBfYgB">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-size-30">
+                <div class="u-layout-col">
+                  <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-2">
+                    <div class="u-container-layout u-container-layout-2">
+                      <div class="u-clearfix u-group-elements u-group-elements-1">
+                        <div class="u-social-icons u-social-icons-1">
+                          <a class="u-social-url" title="Sky High Residences" target="_blank" href="https://www.facebook.com/people/Sky-High-Residences/61553816463615/"><span class="u-icon u-social-facebook u-social-icon"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 55 55" style=""><use xlink:href="#svg-c2e9"></use></svg><svg class="u-svg-content" viewBox="0 0 55 55" x="0px" y="0px" id="svg-c2e9" style="enable-background:new 0 0 55 55;"><path d="M55,27.5C55,12.337,42.663,0,27.5,0S0,12.337,0,27.5c0,8.009,3.444,15.228,8.926,20.258l-0.026,0.023l0.892,0.752
+	c0.058,0.049,0.121,0.089,0.179,0.137c0.474,0.393,0.965,0.766,1.465,1.127c0.162,0.117,0.324,0.234,0.489,0.348
+	c0.534,0.368,1.082,0.717,1.642,1.048c0.122,0.072,0.245,0.142,0.368,0.212c0.613,0.349,1.239,0.678,1.88,0.98
+	c0.047,0.022,0.095,0.042,0.142,0.064c2.089,0.971,4.319,1.684,6.651,2.105c0.061,0.011,0.122,0.022,0.184,0.033
+	c0.724,0.125,1.456,0.225,2.197,0.292c0.09,0.008,0.18,0.013,0.271,0.021C25.998,54.961,26.744,55,27.5,55
+	c0.749,0,1.488-0.039,2.222-0.098c0.093-0.008,0.186-0.013,0.279-0.021c0.735-0.067,1.461-0.164,2.178-0.287
+	c0.062-0.011,0.125-0.022,0.187-0.034c2.297-0.412,4.495-1.109,6.557-2.055c0.076-0.035,0.153-0.068,0.229-0.104
+	c0.617-0.29,1.22-0.603,1.811-0.936c0.147-0.083,0.293-0.167,0.439-0.253c0.538-0.317,1.067-0.648,1.581-1
+	c0.185-0.126,0.366-0.259,0.549-0.391c0.439-0.316,0.87-0.642,1.289-0.983c0.093-0.075,0.193-0.14,0.284-0.217l0.915-0.764
+	l-0.027-0.023C51.523,42.802,55,35.55,55,27.5z M2,27.5C2,13.439,13.439,2,27.5,2S53,13.439,53,27.5
+	c0,7.577-3.325,14.389-8.589,19.063c-0.294-0.203-0.59-0.385-0.893-0.537l-8.467-4.233c-0.76-0.38-1.232-1.144-1.232-1.993v-2.957
+	c0.196-0.242,0.403-0.516,0.617-0.817c1.096-1.548,1.975-3.27,2.616-5.123c1.267-0.602,2.085-1.864,2.085-3.289v-3.545
+	c0-0.867-0.318-1.708-0.887-2.369v-4.667c0.052-0.52,0.236-3.448-1.883-5.864C34.524,9.065,31.541,8,27.5,8
+	s-7.024,1.065-8.867,3.168c-2.119,2.416-1.935,5.346-1.883,5.864v4.667c-0.568,0.661-0.887,1.502-0.887,2.369v3.545
+	c0,1.101,0.494,2.128,1.34,2.821c0.81,3.173,2.477,5.575,3.093,6.389v2.894c0,0.816-0.445,1.566-1.162,1.958l-7.907,4.313
+	c-0.252,0.137-0.502,0.297-0.752,0.476C5.276,41.792,2,35.022,2,27.5z"></path></svg></span>
+                          </a>
+                        </div>
+                        <p class="u-text u-text-2">
+                          <a href="tel:0960-252-4932" class="u-btn u-button-link u-button-style u-none u-text-palette-4-base u-btn-2" target="_blank"> 0960-252-4932</a>
+                        </p>
+                      </div>
+                      <div class="u-clearfix u-group-elements u-group-elements-2">
+                        <div class="u-social-icons u-social-icons-2">
+                          <a class="u-social-url" title="Sky High Residences" target="_blank" href="https://www.facebook.com/people/Sky-High-Residences/61553816463615/"><span class="u-icon u-social-facebook u-social-icon u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-27d4"></use></svg><svg class="u-svg-content" viewBox="0 0 512 512" id="svg-27d4"><path d="m512 256c0-141.4-114.6-256-256-256s-256 114.6-256 256 114.6 256 256 256c1.5 0 3 0 4.5-.1v-199.2h-55v-64.1h55v-47.2c0-54.7 33.4-84.5 82.2-84.5 23.4 0 43.5 1.7 49.3 2.5v57.2h-33.6c-26.5 0-31.7 12.6-31.7 31.1v40.8h63.5l-8.3 64.1h-55.2v189.5c107-30.7 185.3-129.2 185.3-246.1z"></path></svg></span>
+                          </a>
+                        </div>
+                        <p class="u-text u-text-3">
+                          <a href="https://www.facebook.com/people/Sky-High-Residences/61553816463615/" class="u-btn u-button-link u-button-style u-none u-text-palette-4-base u-btn-3" target="_blank"> Sky High Residences</a>
+                        </p>
+                      </div>
+                      <div class="u-clearfix u-group-elements u-group-elements-3">
+                        <div class="u-social-icons u-social-icons-3">
+                          <a class="u-social-url" title="Sky High Residences" target="_blank" href="https://www.facebook.com/people/Sky-High-Residences/61553816463615/"><span class="u-icon u-social-facebook u-social-icon"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 60 60" style=""><use xlink:href="#svg-46e4"></use></svg><svg class="u-svg-content" viewBox="0 0 60 60" x="0px" y="0px" id="svg-46e4" style="enable-background:new 0 0 60 60;"><g><path d="M42.117,43.007c-0.55-0.067-1.046,0.327-1.11,0.876s0.328,1.046,0.876,1.11C52.399,46.231,58,49.567,58,51.5
+		c0,2.714-10.652,6.5-28,6.5S2,54.214,2,51.5c0-1.933,5.601-5.269,16.117-6.507c0.548-0.064,0.94-0.562,0.876-1.11
+		c-0.065-0.549-0.561-0.945-1.11-0.876C7.354,44.247,0,47.739,0,51.5C0,55.724,10.305,60,30,60s30-4.276,30-8.5
+		C60,47.739,52.646,44.247,42.117,43.007z"></path><path d="M29.823,54.757L45.164,32.6c5.754-7.671,4.922-20.28-1.781-26.982C39.761,1.995,34.945,0,29.823,0
+		s-9.938,1.995-13.56,5.617c-6.703,6.702-7.535,19.311-1.804,26.952L29.823,54.757z M30,12c3.86,0,7,3.141,7,7s-3.14,7-7,7
+		s-7-3.141-7-7S26.14,12,30,12z"></path>
+</g></svg></span>
+                          </a>
+                        </div>
+                        <p class="u-text u-text-4">
+                          <a href="https://www.facebook.com/people/Sky-High-Residences/61553816463615/" class="u-btn u-button-link u-button-style u-none u-text-palette-4-base u-btn-4" target="_blank"> 1582 Iriga Street, Brgy. Valenzuela Makati City 1208&nbsp;</a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="u-text u-text-black u-white u-text-5"> ©Copyright 2025 by Skyhigh Residences. All Rights Reserved.</p>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80"></section>
+  
+</body></html>
