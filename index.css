@@ -429,3 +429,11 @@
     margin-right: 0;
   }
 }
+
+/* Styling for mobile screens */
+@media (max-width: 768px) {
+    .u-image {
+        width: 80%;  /* 80% of the container on mobile */
+        height: auto;  /* Keep the aspect ratio */
+    }
+}
