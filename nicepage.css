@@ -46502,6 +46502,7 @@ a.u-link.u-text-hover-color-var:hover {
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
+  letter-spacing: normal;
 }
 
 .u-header .u-nav-link-2 {
@@ -46526,10 +46527,6 @@ a.u-link.u-text-hover-color-var:hover {
   .u-header .u-menu-1 {
     width: auto;
     margin-top: 57px;
-  }
-
-  .u-header .u-nav-1 {
-    letter-spacing: normal;
   }
 
   .u-header .u-image-1 {
@@ -46895,6 +46892,7 @@ a.u-link.u-text-hover-color-var:hover {
 
   .u-footer .u-layout-cell-2 {
     min-height: 252px;
+    width: auto;
   }
 
   .u-footer .u-container-layout-2 {
