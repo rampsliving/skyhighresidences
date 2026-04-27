@@ -46558,11 +46558,11 @@ a.u-link.u-text-hover-color-var:hover {
 }
 
 .u-footer .u-sheet-1 {
-  min-height: 592px;
+  min-height: 601px;
 }
 
 .u-footer .u-layout-wrap-1 {
-  margin: 0 auto;
+  margin: 0;
 }
 
 .u-footer .u-layout-cell-1 {
@@ -46740,6 +46740,10 @@ a.u-link.u-text-hover-color-var:hover {
   margin: 12px auto 38px;
 }
 @media (max-width: 1199px) {
+  .u-footer .u-sheet-1 {
+    min-height: 592px;
+  }
+
   .u-footer .u-layout-wrap-1 {
     margin-right: initial;
     margin-left: initial;
@@ -46790,7 +46794,7 @@ a.u-link.u-text-hover-color-var:hover {
 @media (max-width: 991px) {
   .u-footer .u-layout-wrap-1 {
     width: 778px;
-    margin-right: auto;
+    margin-right: 0;
     margin-left: -7px;
   }
 
@@ -46844,7 +46848,7 @@ a.u-link.u-text-hover-color-var:hover {
 
   .u-footer .u-layout-wrap-1 {
     width: 540px;
-    margin-left: auto;
+    margin-left: 0;
   }
 
   .u-footer .u-layout-cell-1 {
