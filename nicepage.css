@@ -46895,6 +46895,7 @@ a.u-link.u-text-hover-color-var:hover {
 
   .u-footer .u-layout-cell-2 {
     min-height: 266px;
+    width: auto;
   }
 
   .u-footer .u-container-layout-2 {
